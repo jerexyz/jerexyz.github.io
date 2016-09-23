@@ -20,5 +20,9 @@
     "hexo-renderer-marked": "^0.2.11",
     "hexo-renderer-stylus": "^0.3.0",
     "hexo-server": "^0.2.0"
+  },
+  "devDependencies": {
+    "domutils": "^1.5.1",
+    "htmlparser2": "^3.9.1"
   }
 }
