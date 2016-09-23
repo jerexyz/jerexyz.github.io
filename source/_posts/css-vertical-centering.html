@@ -1,0 +1,120 @@
+---
+title: css 实现垂直居中
+date: 2016-06-28 20:08:04
+tags: [css, 垂直居中]
+category: css
+---
+<p>给定父元素高度 子元素高度不定垂直居中 </p>
+<h3>1. 基于绝对定位的解决方案</h3>
+<p>通过绝对定位的方式将元素偏移至上下50%的位置，然后利用translate()根据子元素的尺寸做一次纠正偏移。</p>
+```
+        #css-center-container {
+            outline: 1px solid black;
+            height: 400px;
+            width: 100%;
+            position:relative;
+        }
+
+        #css-center-container>main{
+            display: block;
+            top:50%;
+            left:50%;
+            width: 300px;
+            transform: translate(-50%,-50%);
+            outline: 1px solid #000;
+        }
+```
+
+```
+    <article id="css-center-container">
+        <main>
+            <p> Am i centered yet?</p>
+            <p> Am i centered yet?</p>
+            <p> Am i centered yet?</p>
+            <p>center me, please</p>
+        </main>
+    </article>
+```
+有时不能选用绝对定位，因为它对整个布局影响太过强烈，可以通过
+子元素 margin-top: parent-width/2,然后 利用css 变形属性延Y轴上移元素自身高度的50%  
+因为当我们在translate() 变形函数中使用百分比时，是以元素自身的宽度和高度为基准进行换算和移动的。
+```
+        #css-center-container {
+            outline: 1px solid black;
+            height: 400px;
+            width: 100%;
+            display: inline-block;
+        }
+
+        #css-center-container>main{
+            display: block;
+            margin: 200px auto 0;
+            width: 300px;
+            transform: translateY(-50%);
+            outline: 1px solid #000;
+        }
+```
+
+<section>
+    <style type="text/css">
+        #css-center-container {
+            outline: 1px solid black;
+            height: 400px;
+            width: 100%;
+            display: inline-block;
+        }
+
+        #css-center-container>main{
+            display: block;
+            margin: 200px auto 0;
+            width: 300px;
+            transform: translateY(-50%);
+            outline: 1px solid #000;
+        }
+
+    </style>
+    <article id="css-center-container">
+        <main>
+            <p> Am i centered yet?</p>
+            <p> Am i centered yet?</p>
+            <p> Am i centered yet?</p>
+            <p>center me, please</p>
+        </main>
+    </article>
+</section>
+<br>
+<h3>2. 基于Flexbox 的解决方案</h3>
+<br>
+```
+        #flex-container {
+            display: flex;
+            height: 10em;
+            align-items: center;
+            justify-content: center;
+            outline: 1px solid #000;
+        }
+        #flex-container>main {
+            width: 10em;
+            flex: none;
+            outline: 1px solid #000;
+        }
+```
+<section id="flex-container">
+    <style type="text/css" >
+        #flex-container {
+            display: flex;
+            height: 10em;
+            align-items: center;
+            justify-content: center;
+            outline: 1px solid #000;
+        }
+        #flex-container>main {
+            width: 10em;
+            flex: none;
+            outline: 1px solid #000;
+        }
+    </style>
+    <main>
+        <p>center me, please</p>
+    </main>
+</section>
