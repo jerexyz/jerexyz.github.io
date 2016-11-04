@@ -6,7 +6,7 @@
     "version": "3.2.2"
   },
   "scripts": {
-    "serve-dev": "browser-sync start --server 'public' --files 'public' & hexo generate --watch"
+    "serve": "browser-sync start --server ./public & hexo generate --watch"
   },
   "dependencies": {
     "hexo": "^3.2.2",
