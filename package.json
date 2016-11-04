@@ -22,6 +22,7 @@
     "hexo-server": "^0.2.0"
   },
   "devDependencies": {
+    "browser-sync": "^2.17.5",
     "domutils": "^1.5.1",
     "htmlparser2": "^3.9.1"
   }
