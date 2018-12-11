@@ -1,19 +1,88 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Jere`s Blog]]></title><description><![CDATA[blog for jerexyz]]></description><link>jerexyz.github.io</link><generator>RSS for Node</generator><lastBuildDate>Thu, 12 Jul 2018 08:07:17 GMT</lastBuildDate><item><title><![CDATA[迁移至webpack2]]></title><description><![CDATA[Webpack2 很快就要发布了，目前已经到了2.1.0-beta.25了，我也是从2.1.0-beta21开始关注webpack2，类似tree-shaking等等新特性还是比较令人激动的，现在整理一下从webpack1升级到webpack…]]></description><link>jerexyz.github.io/moving-to-webpack2/</link><guid isPermaLink="false">jerexyz.github.io/moving-to-webpack2/</guid><pubDate>Fri, 04 Nov 2016 18:05:06 GMT</pubDate><content:encoded>&lt;p&gt;&lt;br&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Jere`s Blog]]></title><description><![CDATA[个人博客，用于知识整理.]]></description><link>https://jerexyz.github.io/</link><generator>RSS for Node</generator><lastBuildDate>Tue, 11 Dec 2018 03:23:33 GMT</lastBuildDate><item><title><![CDATA[nginx部署前端SPA应用实践]]></title><description><![CDATA[随着react，vue的普及，前后端分离之后，多采用nginx为静态服务器，并用nginx对api做反向代理，以实现前端SPA应用的部署。 nginx location…]]></description><link>https://jerexyz.github.io//nginx-spa-app-config/</link><guid isPermaLink="false">https://jerexyz.github.io//nginx-spa-app-config/</guid><pubDate>Thu, 08 Feb 2018 22:12:03 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;随着react，vue的普及，前后端分离之后，多采用nginx为静态服务器，并用nginx对api做反向代理，以实现前端SPA应用的部署。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;nginx location 匹配规则&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;~  波浪线表示执行一个正则匹配，区分大小写&lt;/li&gt;
+&lt;li&gt;~* 表示执行一个正则匹配，不区分大小写&lt;/li&gt;
+&lt;li&gt;^~ 表示普通字符匹配，如果该选项匹配，只匹配该选项，不匹配别的选项，一般用来匹配目录&lt;/li&gt;
+&lt;li&gt;=  进行普通字符精确匹配&lt;/li&gt;
+&lt;li&gt;@  定义一个命名的 location，使用在内部定向时，例如 error&lt;em&gt;page, try&lt;/em&gt;files&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;browserHistory 模式的刷新问题&lt;/h3&gt;
+&lt;p&gt;browserHistory 路由模式下，使用history api可以在前端进行页面跳转，但是刷新的话，就需要对链接进行一个修复（重定向）
+我们可以使用nginx 的 &lt;code class=&quot;language-text&quot;&gt;try_files&lt;/code&gt; 来实现：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;nginx&quot;&gt;&lt;pre class=&quot;language-nginx&quot;&gt;&lt;code class=&quot;language-nginx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;location&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;root&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;code&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;app1&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;build&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;index&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;html &lt;span class=&quot;token keyword&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;htm&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;try_files&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$uri&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$uri&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;html&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;location&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;^&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;~&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;app &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;alias&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;code&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;app2&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;build&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;index&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;html&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;try_files&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$uri&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$uri&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;app&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;html&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;location&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;^&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;~&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;api&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;proxy_pass&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;api&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;site&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;webpackDevServer的重定向配置&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; basename &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;/app&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+devServer&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    proxy&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token string&quot;&gt;&apos;/api&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+            target&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;http://api.site&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+            changeOrigin&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+            secure&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    publicPath&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; basename&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    host&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;HOST&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    port&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token constant&quot;&gt;PORT&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    inline&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    historyApiFallback&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        rewrites&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
+            &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;RegExp&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token string&quot;&gt;`^&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;basename&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; to&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;basename&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;/index.html`&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token regex&quot;&gt;/./&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; to&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; basename &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    disableHostCheck&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    contentBase&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; path&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;__dirname&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;build&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;多个SPA的部署与重定向&lt;/h3&gt;
+&lt;p&gt;首先约定发布代码目录如下:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;/publish_webapp/
+|-- app1/
+    |-- index.html
+    |-- static
+|-- app2/
+    |-- index.html
+    |-- static&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;nginx 配置：&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;nginx&quot;&gt;&lt;pre class=&quot;language-nginx&quot;&gt;&lt;code class=&quot;language-nginx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;location&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;^&lt;/span&gt;\&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;\w&lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;root&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;publish_webapp&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;index&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;html&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;try_files&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$uri&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$uri&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;token variable&quot;&gt;$uri&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;html &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;$&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;$&lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;html&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;开启gzip&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;gzip  on;
+gzip_types    text/plain application/javascript application/x-javascript text/javascript text/xml text/css;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;配合webpack在打包的时候压缩静态文件，使用webpack插件&lt;a href=&quot;https://github.com/webpack-contrib/compression-webpack-plugin&quot;&gt;compression-webpack-plugin&lt;/a&gt;
+由于在部署至nginx服务器之前使用了webpack生成了gizp压缩之后的文件，所以就不用使用nginx来压缩静态js了，nginx只需要配置，直接使用gzip之后的文件即可。&lt;/p&gt;
+&lt;p&gt;配置gzip_static&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;gzip_static on;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The ngx&lt;em&gt;http&lt;/em&gt;gzip&lt;em&gt;static&lt;/em&gt;module module allows sending precompressed files with the “.gz” filename extension instead of regular files.&lt;/p&gt;
+&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[迁移至webpack2]]></title><description><![CDATA[Webpack2 很快就要发布了，目前已经到了2.1.0-beta.25了，我也是从2.1.0-beta21开始关注webpack2，类似tree-shaking等等新特性还是比较令人激动的，现在整理一下从webpack1升级到webpack…]]></description><link>https://jerexyz.github.io//moving-to-webpack2/</link><guid isPermaLink="false">https://jerexyz.github.io//moving-to-webpack2/</guid><pubDate>Fri, 04 Nov 2016 18:05:06 GMT</pubDate><content:encoded>&lt;p&gt;&lt;br&gt;
 &lt;a href=&quot;https://webpack.js.org&quot;&gt;Webpack2&lt;/a&gt;很快就要发布了，目前已经到了2.1.0-beta.25了，我也是从2.1.0-beta21开始关注webpack2，类似tree-shaking等等新特性还是比较令人激动的，现在整理一下从webpack1升级到webpack2的过程。  &lt;/p&gt;
 &lt;p&gt;你也可以查阅&lt;a href=&quot;https://webpack.js.org/how-to/upgrade-from-webpack-1/&quot;&gt;官方的从webpack1至webpack2的文档&lt;/a&gt;&lt;/p&gt;
 &lt;h2&gt;安装webpack2&lt;/h2&gt;
 &lt;p&gt;首先要做的就是安装最新版的webpack，因为目前还不是稳定版，所以安装的时候最好指定确切的版本。目前最新的是2.1.—beta.25:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;
-      &lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;npm install --save-dev webpack@2.1.0-beta.25&lt;/code&gt;&lt;/pre&gt;
-      &lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;npm install --save-dev webpack@2.1.0-beta.25&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;如果你使用任何其他webpack插件，你应该意识到它们同时也需要更新，例如：&lt;a href=&quot;extract-text-webpack-plugin&quot;&gt;extract-text-webpack-plugin&lt;/a&gt;&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;
-      &lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;npm install --save-dev extract-text-webpack-plugin@2.0.0-beta.4&lt;/code&gt;&lt;/pre&gt;
-      &lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;npm install --save-dev extract-text-webpack-plugin@2.0.0-beta.4&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h5&gt;module.loaders =&gt; module.rules&lt;/h5&gt;
 &lt;p&gt;这并不是一个破坏性的更新，module.loaders 将继续支持，但在未来它将被module.rules 替换。&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;
-      &lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;// before
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;// before
 modules: {
  loaders: {...}
 }
@@ -21,12 +90,10 @@ modules: {
 // after
 modules: {
  rules: {...}
-}&lt;/code&gt;&lt;/pre&gt;
-      &lt;/div&gt;
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h5&gt;resolve.modulesDirectories =&gt; resolve.modules&lt;/h5&gt;
 &lt;p&gt;另一个重命名的属性，&lt;code class=&quot;language-text&quot;&gt;resolve.modulesDirectories&lt;/code&gt; 被重命名为 &lt;code class=&quot;language-text&quot;&gt;resolve.modules&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;
-      &lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;// before
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;// before
 resolve: {
   modulesDirectories: [...],
 }
@@ -34,14 +101,12 @@ resolve: {
 // after
 resolve: {
   modules: [...],
-}&lt;/code&gt;&lt;/pre&gt;
-      &lt;/div&gt;
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h5&gt;No webpack.optimize.OccurenceOrderPlugin&lt;/h5&gt;
 &lt;p&gt;webpack.optimize.OccurenceOrderPlugin 将被默认包含在webpack2当中，所以我们没有必要单独为其配置。&lt;/p&gt;
 &lt;h5&gt;Configuring loaders&lt;/h5&gt;
 &lt;p&gt;在日常工作中我们使用postcss和&lt;a href=&quot;https://github.com/postcss/postcss-loader&quot;&gt;postcss-loader&lt;/a&gt;通过Webpack装载CSS。postcss 作为顶级属性在webpack当中配置。在webpack2中，这样是不被允许的；我们可以选择为loader配置一个options属性。任何插件，寻找顶级的配置将要被改变为这种风格。  &lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;
-      &lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;// before, in Webpack top level
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;// before, in Webpack top level
 postcss: {
   plugins: ...
 }
@@ -60,28 +125,22 @@ module: {
       &amp;#39;sass-loader&amp;#39;
     ]
   }]
-}&lt;/code&gt;&lt;/pre&gt;
-      &lt;/div&gt;
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h5&gt;ExtractTextPlugin changes&lt;/h5&gt;
 &lt;p&gt;上述对loader配置的变化也使得更容易配置多个loader，以前可以只能通过字符串拼接的形式，现在改为了一个数组，如ExtractTextPlugin：  &lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;
-      &lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;// Webpack 1
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;// Webpack 1
 ExtractTextPlugin.extract(
   &amp;#39;style-loader&amp;#39;,
   &amp;#39;css-loader!postcss-loader!sass-loader&amp;#39;
-);&lt;/code&gt;&lt;/pre&gt;
-      &lt;/div&gt;
+);&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;这样很难工作，如果你不得不配置选项：&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;
-      &lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;// Webpack 1
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;// Webpack 1
 ExtractTextPlugin.extract(
   &amp;#39;style-loader&amp;#39;,
   &amp;#39;css-loader?modules-true!postcss-loader!sass-loader&amp;#39;
-);&lt;/code&gt;&lt;/pre&gt;
-      &lt;/div&gt;
+);&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;webpack2 使用Array结合Object来配置loaders，这样就胡i方便很多，我们可以很容易的将上面的配置替换掉。&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;
-      &lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;// Webpack 2
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;// Webpack 2
 var loaders = [
   {
     loader: &amp;#39;css-loader&amp;#39;,
@@ -95,190 +154,28 @@ var loaders = [
   {
     loader: &amp;#39;sass-loader&amp;#39;
   }
-]&lt;/code&gt;&lt;/pre&gt;
-      &lt;/div&gt;
+]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;webpack1 我们使用  key query 配置loaders，现在extracttextplugin 可以使用Array配置，而不是只允许字符串形式：&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;
-      &lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;// Webpack 2
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;// Webpack 2
 ExtractTextPlugin.extract({
   fallbackLoader: &amp;#39;style-loader&amp;#39;,
   loader: loaders,
-})&lt;/code&gt;&lt;/pre&gt;
-      &lt;/div&gt;
+})&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h5&gt;Stop Babel from compiling ES2015 modules&lt;/h5&gt;
 &lt;p&gt;webpack1 无法解析 es2015 module，所以babel将其转换成CommonJs。webpack2可以解析 es2015 module，并能够消除死代码的基础上使用module，所以建议你告诉Babel不将其转换成CommonJS模块。你可以通过改变babelrc配置实现：  &lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;
-      &lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;// before
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;// before
 &amp;quot;presets&amp;quot;: [&amp;quot;es2015&amp;quot;]
 
 // after
 &amp;quot;presets&amp;quot;: [
   [&amp;quot;es2015&amp;quot;, { &amp;quot;modules&amp;quot;: false }]
-]&lt;/code&gt;&lt;/pre&gt;
-      &lt;/div&gt;
-&lt;p&gt;此文为本人根据&lt;a href=&quot;http://javascriptplayground.com/blog/2016/10/moving-to-webpack-2/&quot;&gt;http://javascriptplayground.com/blog/2016/10/moving-to-webpack-2/&lt;/a&gt;翻译而来&lt;/p&gt;</content:encoded></item><item><title><![CDATA[javascript 面向对象编程（继承）]]></title><description><![CDATA[1. 构造函数继承 call,apply 可以用来更改函数的作用环境，因此在下面的栗子当中： 就是将子类（SubClass）的变量在父类当中执行一遍，由于父类是给this绑定属性的，因此子类自然也就继承了父类的共有属性。 由于这种类型的继承没有涉及原型prototype…]]></description><link>jerexyz.github.io/object-oriented-javascript-2/</link><guid isPermaLink="false">jerexyz.github.io/object-oriented-javascript-2/</guid><pubDate>Mon, 06 Jun 2016 17:43:01 GMT</pubDate><content:encoded>&lt;h3&gt;1. 构造函数继承&lt;/h3&gt;
-&lt;p&gt;call,apply 可以用来更改函数的作用环境，因此在下面的栗子当中：&lt;br&gt;
-&lt;code class=&quot;language-text&quot;&gt;SuperClass.call(this,id);&lt;/code&gt;就是将子类（SubClass）的变量在父类当中执行一遍，由于父类是给this绑定属性的，因此子类自然也就继承了父类的共有属性。&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;
-      &lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;//声明父类
-function SuperClass(id) {
-    // 引用类型共有属性
-    this.books = [&amp;#39;javascript&amp;#39;,&amp;#39;html&amp;#39;,&amp;#39;css&amp;#39;];
-    // 值类型共有属性
-    this.id = id;
-}
-//父类声明原型方法
-SuperClass.prototype.showBooks = function() {
-    console.log(this.books);
-}
-//声明子类
-function SubClass(id) {
-    //继承父类
-    SuperClass.call(this,id);
-}
-
-var instance1 = new SubClass(1);
-var instance2 = new SubClass(2);
-
-instance1.books.push(&amp;#39;html5&amp;#39;);
-instance2.books.push(&amp;#39;css3&amp;#39;);
-
-console.log(instance1.books);  // [ &amp;#39;javascript&amp;#39;, &amp;#39;html&amp;#39;, &amp;#39;css&amp;#39;, &amp;#39;html5&amp;#39; ]
-console.log(instance1.id);     // 1
-
-console.log(instance2.books);  // [ &amp;#39;javascript&amp;#39;, &amp;#39;html&amp;#39;, &amp;#39;css&amp;#39;, &amp;#39;css3&amp;#39; ]
-console.log(instance2.id);     // 2
-
-console.log(instance1.showBooks());  // TypeError: instance1.showBooks is not a function&lt;/code&gt;&lt;/pre&gt;
-      &lt;/div&gt;
-&lt;p&gt;由于这种类型的继承没有涉及原型prototype，所以父类的原型方法自然不会被子类继承。&lt;/p&gt;
-&lt;h3&gt;2. 组合继承&lt;/h3&gt;
-&lt;p&gt;构造函数式继承是通过在子类的构造函数作用环境中执行一次父类的构造函数来实现，但没有继承prototype，可将构造函数和prototype结合起来。&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;
-      &lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;//声明父类
-function SuperClass(name){
-    this.name = name;
-    this.books = [&amp;quot;html&amp;quot;,&amp;quot;js&amp;quot;,&amp;quot;css&amp;quot;];
-}
-
-SuperClass.prototype.getName = function() {
-    console.log(this.name);
-}
-
-//声明子类
-function SubClass(name, time) {
-    SuperClass.call(this, name);
-    this.time = time;
-}
-
-// 子类原型继承父类
-SubClass.prototype = new SuperClass();
-//子类原型方法
-SubClass.prototype.getTime = function(){
-    console.log(this.time);
-}
-
-var instance1 = new SubClass(&amp;#39;js book&amp;#39;,2014);&lt;/code&gt;&lt;/pre&gt;
-      &lt;/div&gt;
-&lt;p&gt;&lt;img src=&quot;/images/oriented/js-oriented-2016-06-06.png&quot;&gt;&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;
-      &lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;instance1.books.push(&amp;#39;html5&amp;#39;,&amp;#39;css3&amp;#39;);&lt;/code&gt;&lt;/pre&gt;
-      &lt;/div&gt;
-&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;instance1这个实例和instance1.__proto__都各有一个books，这是因为构造函数被调用了两次的缘故。&lt;/code&gt;
-&lt;img src=&quot;/images/oriented/js-oriented-2-2016-06-06.png&quot;&gt;
-优点： 子类实例中更改父类继承下来的引用类型如books，不会影响到其他实例，并且子类实例化过程中又能将参数传递到父类的构造函数中&lt;br&gt;
-缺点： 使用构造函数继承时执行了一遍父类的构造函数，实现子类原型继承时又执行了一次构造函数&lt;/p&gt;
-&lt;h3&gt;3. 原型式继承&lt;/h3&gt;
-&lt;p&gt;父类SuperClass不变的属性都可以写入SuperClass.prototype当中，所以可以让SubClass.prototype直接跳过new SuperClass()，直接继承SuperClass.prototype。&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;
-      &lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;// 子类原型继承父类
-SubClass.prototype = SuperClass.prototype;
-
-console.log(instance1.getName()); //js book&lt;/code&gt;&lt;/pre&gt;
-      &lt;/div&gt;
-&lt;p&gt;优点：效率比较高（不用执行和建立SuperClass的实例了），比较省内存。&lt;br&gt;
-缺点：SubClass.prototype和SuperClass.prototype现在指向了同一个对象，那么任何对SubClass.prototype的修改，都会反映到SuperClasss.prototype。
-&lt;strong&gt;借助原型prototype可以根据已有的对象创建一个新的对象&lt;/strong&gt;，同时不必创建新的自定义类型。&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;
-      &lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;function inheritObject(o){
-    //声明一个过渡函数对象
-    function F(){};
-    //过渡对象的原型继承父对象
-    F.prototype = o;
-    //返回过度对象的一个实例，该实例的原型继承了父对象
-    return new F();
-}
-
-var book = {
-    name: &amp;quot;js book&amp;quot;,
-    alikeBook: [&amp;quot;css book&amp;quot;,&amp;quot;html Book&amp;quot;]
-}
-
-var newBook = inheritObject(book);&lt;/code&gt;&lt;/pre&gt;
-      &lt;/div&gt;
-&lt;p&gt;这种方式由于F过度类的构造函数中无内容，所以开销比较小。&lt;/p&gt;
-&lt;h3&gt;4. 寄生组合式继承&lt;/h3&gt;
-&lt;p&gt;创建一个父类原型的副本而不需要调用父类的构造函数。&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;
-      &lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;/**
-＊ 寄生式继承 继承原型
-＊ 传递参数 subClass 子类
-＊ 传递参数 superClass 父类
-**/
-function inheritPrototype(subClass, superClass) {
-    // 复制一份父类的原型副本保存在变量中
-    var p = inheritObject(superClass.prototype);
-    // 修正因为重写子类原型导致子类的constructor属性被修改
-    p.constructor = subClass;
-    //设置子类的原型
-    subClass.prototype = p;
-}
-
-// 定义子类
-function SuperClass(name) {
-    this.name = name;
-    this.colors = [&amp;quot;red&amp;quot;, &amp;quot;blue&amp;quot;, &amp;quot;green&amp;quot;];
-}
-// 定义父类原型方法
-SuperClass.prototype.getName = function() {
-    console.log(this.name);
-}
-// 定义子类
-function SubClass(name, time) {
-    // 构造函数式继承
-    SuperClass.call(this, name);
-    // 子类新增属性
-    this.time = time;
-}
-// 寄生式继承父类原型
-inheritPrototype(SubClass, SuperClass);
-// 子类新增原型方法
-SubClass.prototype.getTime = function() {
-    console.log(this.time);
-}
-
-var instance1 = new SubClass(&amp;quot;js book&amp;quot;, 2014);
-var instance2 = new SubClass(&amp;quot;css book&amp;quot;, 2013);&lt;/code&gt;&lt;/pre&gt;
-      &lt;/div&gt;</content:encoded></item><item><title><![CDATA[汉诺塔问题]]></title><link>jerexyz.github.io/hanoi-problem/</link><guid isPermaLink="false">jerexyz.github.io/hanoi-problem/</guid><pubDate>Sat, 28 May 2016 01:04:13 GMT</pubDate><content:encoded>&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;
-      &lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;var hanoi = function (dist,src,aux,dst){
-   if(dist &amp;gt; 0){
-    hanoi(dist-1,src,dst,aux);
-    console.log(&amp;#39;move dist &amp;#39; + Date.now(),dist + &amp;#39; from &amp;#39; + src + &amp;#39; to &amp;#39; + dst);
-    hanoi(dist-1,aux,src,dst);
-   }
-};
-hanoi(2,&amp;#39;From&amp;#39;,&amp;#39;Aux&amp;#39;,&amp;#39;To&amp;#39;);
-move dist 1464368752088 1 from From to Aux
-move dist 1464368752089 2 from From to To
-move dist 1464368752089 1 from Aux to To&lt;/code&gt;&lt;/pre&gt;
-      &lt;/div&gt;
-&lt;p&gt;&lt;img src=&quot;http://o15iyihnc.qnssl.com/algorithm/hanoi.jpeg-800&quot;&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[javascript array 求和，求平均值]]></title><description><![CDATA[JavaScript算法练习:取二维数组中最大值的几种方法 Array.prototype.reduce() 深入浅出妙用 Javascript 中 apply、call、bind]]></description><link>jerexyz.github.io/javascript-array-evaluation/</link><guid isPermaLink="false">jerexyz.github.io/javascript-array-evaluation/</guid><pubDate>Wed, 25 May 2016 00:07:06 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a href=&quot;http://www.w3cplus.com/javascript/algorithm-return-largest-numbers-in-arrays.html&quot;&gt;JavaScript算法练习:取二维数组中最大值的几种方法&lt;/a&gt;&lt;br&gt;
+]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;此文为本人根据&lt;a href=&quot;http://javascriptplayground.com/blog/2016/10/moving-to-webpack-2/&quot;&gt;http://javascriptplayground.com/blog/2016/10/moving-to-webpack-2/&lt;/a&gt;翻译而来&lt;/p&gt;</content:encoded></item><item><title><![CDATA[javascript array 求和，求平均值]]></title><description><![CDATA[JavaScript算法练习:取二维数组中最大值的几种方法 Array.prototype.reduce() 深入浅出妙用 Javascript 中 apply、call、bind]]></description><link>https://jerexyz.github.io//avascript-array-evaluation/</link><guid isPermaLink="false">https://jerexyz.github.io//avascript-array-evaluation/</guid><pubDate>Wed, 25 May 2016 00:07:06 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a href=&quot;http://www.w3cplus.com/javascript/algorithm-return-largest-numbers-in-arrays.html&quot;&gt;JavaScript算法练习:取二维数组中最大值的几种方法&lt;/a&gt;&lt;br&gt;
 &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce&quot;&gt;Array.prototype.reduce()&lt;/a&gt;&lt;br&gt;
-&lt;a href=&quot;http://web.jobbole.com/83642/&quot;&gt;深入浅出妙用 Javascript 中 apply、call、bind&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[javascript 面向对象编程（封装）]]></title><description><![CDATA[面向对象编程就是将你的需求抽象成一个对象，然后针对这个对象分析其特性（属性）与动作（方法）。这个对象我们称之为类。面向对象编程思想其中有一个特点就是封装，就是说把你需要的功能放到一个对象里。   1. javascript 当中的 prototype 在js…]]></description><link>jerexyz.github.io/object-oriented-javascript/</link><guid isPermaLink="false">jerexyz.github.io/object-oriented-javascript/</guid><pubDate>Sun, 22 May 2016 10:46:23 GMT</pubDate><content:encoded>&lt;p&gt;面向对象编程就是将你的需求抽象成一个对象，然后针对这个对象分析其特性（属性）与动作（方法）。这个对象我们称之为类。面向对象编程思想其中有一个特点就是封装，就是说把你需要的功能放到一个对象里。  &lt;/p&gt;
+&lt;a href=&quot;http://web.jobbole.com/83642/&quot;&gt;深入浅出妙用 Javascript 中 apply、call、bind&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[javascript 面向对象编程（封装）]]></title><description><![CDATA[面向对象编程就是将你的需求抽象成一个对象，然后针对这个对象分析其特性（属性）与动作（方法）。这个对象我们称之为类。面向对象编程思想其中有一个特点就是封装，就是说把你需要的功能放到一个对象里。   1. javascript 当中的 prototype 在js…]]></description><link>https://jerexyz.github.io//object-oriented-javascript/</link><guid isPermaLink="false">https://jerexyz.github.io//object-oriented-javascript/</guid><pubDate>Sun, 22 May 2016 10:46:23 GMT</pubDate><content:encoded>&lt;p&gt;面向对象编程就是将你的需求抽象成一个对象，然后针对这个对象分析其特性（属性）与动作（方法）。这个对象我们称之为类。面向对象编程思想其中有一个特点就是封装，就是说把你需要的功能放到一个对象里。  &lt;/p&gt;
 &lt;h3&gt;1. javascript 当中的 prototype&lt;/h3&gt;
 &lt;p&gt;在js当中，constructor属性是专门为function而设计的，她存在于&lt;strong&gt;每一个function&lt;/strong&gt;的&lt;strong&gt;prototype属性中&lt;/strong&gt;。constructor保存了指向function的一个引用。同时，实例化（new 操作符）的book的&lt;strong&gt;proto&lt;/strong&gt; 属性是函数prototype的一个内部引用 &lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;
-      &lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;var Book = function(id,bookname,price) {
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;var Book = function(id,bookname,price) {
     this.id = id;
     this.bookname = bookname;
     this.price = price;
@@ -292,47 +189,35 @@ var book = new Book(10,&amp;#39;javascript &amp;#39;,55);
 
 console.log(book.__proto__.constructor === Book) //true
 console.log(Book.prototype.constructor === Book) //true
-console.log(Book.prototype.isPrototypeOf(book))  //true&lt;/code&gt;&lt;/pre&gt;
-      &lt;/div&gt;
+console.log(Book.prototype.isPrototypeOf(book))  //true&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;在上面的代码当中，如果写成&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;
-      &lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Book.prototype = {
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Book.prototype = {
     display: function(){
         cosole.log(&amp;#39;display&amp;#39;);       
     }
 }
 
-console.log(Book.prototype.constructor === Book) //false&lt;/code&gt;&lt;/pre&gt;
-      &lt;/div&gt;
+console.log(Book.prototype.constructor === Book) //false&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;因为constructor被覆盖掉了，针对这种情况，可以按照这种方式去写：  &lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;
-      &lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Book.prototype = {
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;Book.prototype = {
     constructor:Book,
     display: function(){
         cosole.log(&amp;#39;display&amp;#39;);       
     }
 }
 
-console.log(Book.prototype.constructor === Book) //true&lt;/code&gt;&lt;/pre&gt;
-      &lt;/div&gt;
+console.log(Book.prototype.constructor === Book) //true&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h3&gt;2. 验证prototype属性&lt;/h3&gt;
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;isPrototypeOf()&lt;/code&gt; 这个方法用来判断某个prototype对象与某个实例的关系&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;
-      &lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;console.log(Book.prototype.isPrototypeOf(book)) //true&lt;/code&gt;&lt;/pre&gt;
-      &lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;console.log(Book.prototype.isPrototypeOf(book)) //true&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;hasOwnProperty()&lt;/code&gt; 每个实例对象都有一个hasOwnProperty()方法，用来判断某一个属性到底是本地属性，还是继承自prototype的属性。&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;
-      &lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;book.hasOwnProperty(&amp;#39;id&amp;#39;); //true
-book.hasOwnProperty(&amp;#39;display&amp;#39;); //false&lt;/code&gt;&lt;/pre&gt;
-      &lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;book.hasOwnProperty(&amp;#39;id&amp;#39;); //true
+book.hasOwnProperty(&amp;#39;display&amp;#39;); //false&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;in 运算符 可以用来判断某个实例是否含有某个属性，不管是不是本地属性。&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;
-      &lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;console.log(&amp;#39;id&amp;#39; in book); //true
-console.log(&amp;#39;display&amp;#39; in book) //true&lt;/code&gt;&lt;/pre&gt;
-      &lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;console.log(&amp;#39;id&amp;#39; in book); //true
+console.log(&amp;#39;display&amp;#39; in book) //true&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;in 运算符还可以用来遍历某个对象的所有属性&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;
-      &lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;for(var prop in book){
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;for(var prop in book){
     console.log(&amp;quot;book[&amp;quot;+ prop +&amp;quot;]=&amp;quot;+book[prop]);
 }
 /**
@@ -342,12 +227,10 @@ book[price]=55
 book[display]=function (){
     console.log(this.bookname);
 }
-**/&lt;/code&gt;&lt;/pre&gt;
-      &lt;/div&gt;
+**/&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h3&gt;3. 闭包实现一个完整的类&lt;/h3&gt;
 &lt;p&gt;有时候我们经常将类的静态变量通过闭包来实现&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;
-      &lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;var Book = (function(){
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;var Book = (function(){
     //静态私有变量
     var bookNum = 0;
     //静态私有方法
@@ -382,7 +265,6 @@ book[display]=function (){
     }
     
     return _book;
-})();&lt;/code&gt;&lt;/pre&gt;
-      &lt;/div&gt;
+})();&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;闭包有权访问另外一个函数作用域中的变量的函数，即在一个函数内部创建另外一个函数。我们将这个闭包作为创建对象的构造函数，这样它既是闭包又是可实例对象的函数，即可以访问到类函数作用域中的变量（booknum，checkBook）。&lt;br&gt;
 同时在闭包内部实现了原型属性和方法，最终得以返回一个完整的类。&lt;/p&gt;</content:encoded></item></channel></rss>
