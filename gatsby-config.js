@@ -5,7 +5,7 @@ module.exports = {
     description: '个人博客，用于知识整理.',
     siteUrl: 'https://jerexyz.github.io/',
   },
-  pathPrefix: '/gatsby-starter-blog',
+  pathPrefix: '/',
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
