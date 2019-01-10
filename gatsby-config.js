@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: 'Jere`s Blog',
-    author: 'Kyle Mathews',
+    author: 'jerexyz',
     description: '个人博客，用于知识整理.',
     siteUrl: 'https://jerexyz.github.io/',
   },
