@@ -1,4 +1,39 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Jere`s Blog]]></title><description><![CDATA[个人博客，用于知识整理.]]></description><link>https://jerexyz.github.io/</link><generator>RSS for Node</generator><lastBuildDate>Tue, 11 Dec 2018 03:43:02 GMT</lastBuildDate><item><title><![CDATA[nginx部署前端SPA应用实践]]></title><description><![CDATA[随着 react，vue 的普及，前后端分离之后，多采用 nginx 为静态服务器，并用 nginx 对 api 做反向代理，以实现前端 SPA 应用的部署。 nginx location…]]></description><link>https://jerexyz.github.io//nginx-spa-app-config/</link><guid isPermaLink="false">https://jerexyz.github.io//nginx-spa-app-config/</guid><pubDate>Thu, 08 Feb 2018 22:12:03 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Jere`s Blog]]></title><description><![CDATA[个人博客，用于知识整理.]]></description><link>https://jerexyz.github.io/</link><generator>RSS for Node</generator><lastBuildDate>Thu, 10 Jan 2019 03:53:24 GMT</lastBuildDate><item><title><![CDATA[Fish Shell 使用笔记]]></title><description><![CDATA[安装Fish Shell 安装 Oh My Fish 安装 Fisher 配置  autojump 安装 autojump 至本地   目录: 在fish配置中打开文件~/.config/fish/config。在编辑器中查找并添加以下行: 退出fish，重新开始。使用cd…]]></description><link>https://jerexyz.github.io//notes-for-the-fish-shell/</link><guid isPermaLink="false">https://jerexyz.github.io//notes-for-the-fish-shell/</guid><pubDate>Thu, 10 Jan 2019 03:51:23 GMT</pubDate><content:encoded>&lt;h3&gt;安装Fish Shell&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;brew install fish&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;安装&lt;a href=&quot;https://github.com/oh-my-fish/oh-my-fish&quot;&gt;Oh My Fish&lt;/a&gt;&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;curl -L https://get.oh-my.fish | fish&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;安装&lt;a href=&quot;https://github.com/jorgebucaran/fisher&quot;&gt;Fisher&lt;/a&gt;&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;配置 &lt;a href=&quot;https://github.com/wting/autojump&quot;&gt;autojump&lt;/a&gt;&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;git clone https://github.com/wting/autojump.git&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;安装 autojump 至本地 &lt;code class=&quot;language-text&quot;&gt;~/.autojump&lt;/code&gt; 目录:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;cd autojump
+./install.py&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;在fish配置中打开文件~/.config/fish/config。在编辑器中查找并添加以下行:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;begin
+    set --local AUTOJUMP_PATH $HOME/.autojump/share/autojump/autojump.fish
+    if test -e $AUTOJUMP_PATH
+        source $AUTOJUMP_PATH
+    end
+end&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;退出fish，重新开始。使用cd命令访问常用目录。你现在可以使用j命令跳转到这些目录:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;exit
+j testDir&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;跳转到当前目录的子目录:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;jc chid_dir&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;查看&lt;code class=&quot;language-text&quot;&gt;autojump&lt;/code&gt;历史记录中的条目统计信息:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;j -s&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;试用版本:Autojump 22.5.1, Fish 3.0.0和Mac 10.14.2&lt;/p&gt;</content:encoded></item><item><title><![CDATA[nginx部署前端SPA应用实践]]></title><description><![CDATA[随着 react，vue 的普及，前后端分离之后，多采用 nginx 为静态服务器，并用 nginx 对 api 做反向代理，以实现前端 SPA 应用的部署。 nginx location…]]></description><link>https://jerexyz.github.io//nginx-spa-app-config/</link><guid isPermaLink="false">https://jerexyz.github.io//nginx-spa-app-config/</guid><pubDate>Thu, 08 Feb 2018 22:12:03 GMT</pubDate><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;随着 react，vue 的普及，前后端分离之后，多采用 nginx 为静态服务器，并用 nginx 对 api 做反向代理，以实现前端 SPA 应用的部署。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3&gt;nginx location 匹配规则&lt;/h3&gt;
