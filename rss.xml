@@ -1,4 +1,30 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Jere`s Blog]]></title><description><![CDATA[个人博客，用于知识整理.]]></description><link>https://jerexyz.github.io/</link><generator>RSS for Node</generator><lastBuildDate>Thu, 10 Jan 2019 07:20:25 GMT</lastBuildDate><item><title><![CDATA[Fish Shell 使用笔记]]></title><description><![CDATA[安装Fish Shell   安装 Oh My Fish    安装 Fisher 配置  autojump 安装 autojump 至本地   目录: 在fish配置中打开文件~/.config/fish/config。在编辑器中查找并添加以下行: 退出fish…]]></description><link>https://jerexyz.github.io//notes-for-the-fish-shell/</link><guid isPermaLink="false">https://jerexyz.github.io//notes-for-the-fish-shell/</guid><pubDate>Thu, 10 Jan 2019 03:51:23 GMT</pubDate><content:encoded>&lt;ol&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Jere`s Blog]]></title><description><![CDATA[个人博客，用于知识整理.]]></description><link>https://jerexyz.github.io/</link><generator>RSS for Node</generator><lastBuildDate>Fri, 11 Jan 2019 06:20:46 GMT</lastBuildDate><item><title><![CDATA[git使用笔记]]></title><description><![CDATA[配置 常用操作别名 添加以下配置 设置默认的Push Remote 在使用 的时候，经常会碰到这种情况   配置推送到远端的默认分支就可解决]]></description><link>https://jerexyz.github.io//tools/git-tips/</link><guid isPermaLink="false">https://jerexyz.github.io//tools/git-tips/</guid><pubDate>Fri, 11 Jan 2019 03:05:51 GMT</pubDate><content:encoded>&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;配置&lt;code class=&quot;language-text&quot;&gt;git&lt;/code&gt;常用操作别名&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; config --global --edit&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;添加以下配置&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;alias&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+  co &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; checkout
+  ci &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; commit
+  st &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; status
+  br &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; branch
+  hist &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; log --pretty&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;format:\&quot;%h %ad &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; %s%d &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;%an&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;\&quot; --graph --date&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;short
+  &lt;span class=&quot;token function&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; cat-file -t
+  dump &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; cat-file -p
+  rb &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; rebase -i --autosquash
+  &lt;span class=&quot;token function&quot;&gt;pr&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; remote prune origin&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;git&lt;/code&gt;设置默认的Push Remote&lt;/p&gt;
+&lt;p&gt;在使用&lt;code class=&quot;language-text&quot;&gt;git push&lt;/code&gt;的时候，经常会碰到这种情况  &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;fatal: The current branch newFeature has no upstream branch.
+To push the current branch and &lt;span class=&quot;token keyword&quot;&gt;set&lt;/span&gt; the remote as upstream, use
+
+    &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; push --set-upstream origin newFeature&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;配置推送到远端的默认分支就可解决&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; config --global push.default current&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</content:encoded></item><item><title><![CDATA[Fish Shell 使用笔记]]></title><description><![CDATA[安装Fish Shell   安装 Oh My Fish    安装 Fisher 配置  autojump 安装 autojump 至本地   目录: 在fish配置中打开文件~/.config/fish/config。在编辑器中查找并添加以下行: 退出fish…]]></description><link>https://jerexyz.github.io//notes-for-the-fish-shell/</link><guid isPermaLink="false">https://jerexyz.github.io//notes-for-the-fish-shell/</guid><pubDate>Thu, 10 Jan 2019 03:51:23 GMT</pubDate><content:encoded>&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;安装Fish Shell  &lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;brew install fish&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
