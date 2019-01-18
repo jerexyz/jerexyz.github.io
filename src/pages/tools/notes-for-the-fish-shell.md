@@ -93,6 +93,10 @@ date: 2019-01-10T03:51:23.415Z
     chsh -s /usr/local/bin/fish
     ```
 
+1. `shell`工具函数收集
+
+https://stedolan.github.io/jq/tutorial/
+
 >[switch to fish](https://fishshell.com/docs/current/tutorial.html#tut_switching_to_fish)  
 >[Fish shell 入门教程](http://www.ruanyifeng.com/blog/2017/05/fish_shell.html)  
 >使用版本:Autojump 22.5.1, Fish 3.0.0和Mac 10.14.2  
