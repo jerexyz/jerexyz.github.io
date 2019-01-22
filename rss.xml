@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Jere`s Blog]]></title><description><![CDATA[个人博客，用于知识整理.]]></description><link>https://jerexyz.github.io/</link><generator>RSS for Node</generator><lastBuildDate>Tue, 15 Jan 2019 01:54:31 GMT</lastBuildDate><item><title><![CDATA[【翻译】每个人都应当知道的es2018当中的新特性]]></title><description><![CDATA[ECMAScript 标准的第九版，官方称为 ECMAScript 2018（或简称 ES2018），于 2018 年 6 月发布。从 ES2016 开始，ECMAScript…]]></description><link>https://jerexyz.github.io//ecmascript/new-es2018-features-every-javascript-developer-should-know/</link><guid isPermaLink="false">https://jerexyz.github.io//ecmascript/new-es2018-features-every-javascript-developer-should-know/</guid><pubDate>Mon, 14 Jan 2019 07:23:05 GMT</pubDate><content:encoded>&lt;p&gt;ECMAScript 标准的第九版，官方称为 ECMAScript 2018（或简称 ES2018），于 2018 年 6 月发布。从 ES2016 开始，ECMAScript 规范的新版本每年发布而不是每几年发布一次，并且添加的功能少于以前的主要版本。
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Jere`s Blog]]></title><description><![CDATA[个人博客，用于知识整理.]]></description><link>https://jerexyz.github.io/</link><generator>RSS for Node</generator><lastBuildDate>Tue, 22 Jan 2019 05:52:20 GMT</lastBuildDate><item><title><![CDATA[【翻译】每个人都应当知道的es2018当中的新特性]]></title><description><![CDATA[ECMAScript 标准的第九版，官方称为 ECMAScript 2018（或简称 ES2018），于 2018 年 6 月发布。从 ES2016 开始，ECMAScript…]]></description><link>https://jerexyz.github.io//ecmascript/new-es2018-features-every-javascript-developer-should-know/</link><guid isPermaLink="false">https://jerexyz.github.io//ecmascript/new-es2018-features-every-javascript-developer-should-know/</guid><pubDate>Mon, 14 Jan 2019 07:23:05 GMT</pubDate><content:encoded>&lt;p&gt;ECMAScript 标准的第九版，官方称为 ECMAScript 2018（或简称 ES2018），于 2018 年 6 月发布。从 ES2016 开始，ECMAScript 规范的新版本每年发布而不是每几年发布一次，并且添加的功能少于以前的主要版本。
 该标准的最新的每年一次的版本添加了四个新的 RegExp 功能，展开语法(Spread syntax)，异步迭代（asynchronous iteration）和 &lt;code class=&quot;language-text&quot;&gt;Promise.prototype.finally&lt;/code&gt;。此外，ES2018 从标记模板中删除了转义序列的语法限制。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -131,7 +131,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 &lt;p&gt;&lt;a href=&quot;https://css-tricks.com/new-es2018-features-every-javascript-developer-should-know/&quot;&gt;new-es2018-features-every-javascript-developer-should-know&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;/li&gt;
-&lt;/ol&gt;</content:encoded></item><item><title><![CDATA[git使用笔记]]></title><description><![CDATA[配置 常用操作别名 添加以下配置 设置默认的Push Remote 在使用 的时候，经常会碰到这种情况   配置推送到远端的默认分支就可解决 清理本地git分支 清理已合并的分支 清理所有本地分支,慎重使用 A simple way to clean up your git…]]></description><link>https://jerexyz.github.io//tools/git-tips/</link><guid isPermaLink="false">https://jerexyz.github.io//tools/git-tips/</guid><pubDate>Fri, 11 Jan 2019 03:05:51 GMT</pubDate><content:encoded>&lt;ol&gt;
+&lt;/ol&gt;</content:encoded></item><item><title><![CDATA[git使用笔记]]></title><description><![CDATA[配置 常用操作别名 添加以下配置 设置默认的 Push Remote 在使用 的时候，经常会碰到这种情况 配置推送到远端的默认分支就可解决 清理本地 git 分支 清理已合并的分支 清理所有本地分支,慎重使用 Git 如果不做设置，默认的 diff 是按行去做的，这种 diff…]]></description><link>https://jerexyz.github.io//tools/git-tips/</link><guid isPermaLink="false">https://jerexyz.github.io//tools/git-tips/</guid><pubDate>Fri, 11 Jan 2019 03:05:51 GMT</pubDate><content:encoded>&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;配置&lt;code class=&quot;language-text&quot;&gt;git&lt;/code&gt;常用操作别名&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; config --global --edit&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -148,8 +148,8 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
   &lt;span class=&quot;token function&quot;&gt;pr&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; remote prune origin&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;git&lt;/code&gt;设置默认的Push Remote&lt;/p&gt;
-&lt;p&gt;在使用&lt;code class=&quot;language-text&quot;&gt;git push&lt;/code&gt;的时候，经常会碰到这种情况  &lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;git&lt;/code&gt;设置默认的 Push Remote&lt;/p&gt;
+&lt;p&gt;在使用&lt;code class=&quot;language-text&quot;&gt;git push&lt;/code&gt;的时候，经常会碰到这种情况&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;fatal: The current branch newFeature has no upstream branch.
 To push the current branch and &lt;span class=&quot;token keyword&quot;&gt;set&lt;/span&gt; the remote as upstream, use
 
@@ -158,7 +158,7 @@ To push the current branch and &lt;span class=&quot;token keyword&quot;&gt;set&l
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; config --global push.default current&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;清理本地git分支&lt;/p&gt;
+&lt;p&gt;清理本地 git 分支&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;清理已合并的分支&lt;/li&gt;
 &lt;/ul&gt;
@@ -168,6 +168,22 @@ To push the current branch and &lt;span class=&quot;token keyword&quot;&gt;set&l
 &lt;li&gt;清理所有本地分支,慎重使用&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; branch &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;xargs&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; branch -d&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;git diff&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Git 如果不做设置，默认的 diff 是按行去做的，这种 diff 的方式看起来并不那么的直观，特别是如果你是在做代码的微调，行 diff 不是那么容易让你掌握到改了东西。另外一种情况是，如果你改的是文档类的，比如 markdown，行 diff 就更不可读了,尤其是代码格式化之后。
+设置&lt;code class=&quot;language-text&quot;&gt;word-diff&lt;/code&gt; 之后就很直观了&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;diff&lt;/span&gt; --word-diff&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;config Beyond Compare&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; config --global diff.tool bc3
+&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; config --global merge.tool bc3
+&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; config --global mergetool.bc3.trustExitCode &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;dir-diff&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; difftool origin/master --dir-diff&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;blockquote&gt;
@@ -240,7 +256,11 @@ end&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;echo /usr/local/bin/fish | sudo tee -a /etc/shells
 chsh -s /usr/local/bin/fish&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;shell&lt;/code&gt;工具函数收集&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
+&lt;p&gt;&lt;a href=&quot;https://stedolan.github.io/jq/tutorial/&quot;&gt;https://stedolan.github.io/jq/tutorial/&lt;/a&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;a href=&quot;https://fishshell.com/docs/current/tutorial.html#tut_switching_to_fish&quot;&gt;switch to fish&lt;/a&gt;&lt;br&gt;
 &lt;a href=&quot;http://www.ruanyifeng.com/blog/2017/05/fish_shell.html&quot;&gt;Fish shell 入门教程&lt;/a&gt;&lt;br&gt;
