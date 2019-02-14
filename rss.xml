@@ -1,4 +1,53 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Jere`s Blog]]></title><description><![CDATA[个人博客，用于知识整理.]]></description><link>https://jerexyz.github.io/</link><generator>RSS for Node</generator><lastBuildDate>Wed, 23 Jan 2019 06:26:00 GMT</lastBuildDate><item><title><![CDATA[【翻译】每个人都应当知道的es2018当中的新特性]]></title><description><![CDATA[ECMAScript 标准的第九版，官方称为 ECMAScript 2018（或简称 ES2018），于 2018 年 6 月发布。从 ES2016 开始，ECMAScript…]]></description><link>https://jerexyz.github.io//ecmascript/new-es2018-features-every-javascript-developer-should-know/</link><guid isPermaLink="false">https://jerexyz.github.io//ecmascript/new-es2018-features-every-javascript-developer-should-know/</guid><pubDate>Mon, 14 Jan 2019 07:23:05 GMT</pubDate><content:encoded>&lt;p&gt;ECMAScript 标准的第九版，官方称为 ECMAScript 2018（或简称 ES2018），于 2018 年 6 月发布。从 ES2016 开始，ECMAScript 规范的新版本每年发布而不是每几年发布一次，并且添加的功能少于以前的主要版本。
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Jere`s Blog]]></title><description><![CDATA[个人博客，用于知识整理.]]></description><link>https://jerexyz.github.io/</link><generator>RSS for Node</generator><lastBuildDate>Thu, 14 Feb 2019 06:27:15 GMT</lastBuildDate><item><title><![CDATA[常用的网络连通检测命令]]></title><description><![CDATA[ping fping A more powerful ping which can ping multiple hosts. telnet exit telnet 
+Since ^X is CtrlX, try Ctrl] for ^].]]></description><link>https://jerexyz.github.io//tools/net-detect/</link><guid isPermaLink="false">https://jerexyz.github.io//tools/net-detect/</guid><pubDate>Thu, 14 Feb 2019 03:21:04 GMT</pubDate><content:encoded>&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;ping&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;# ping a host with a total count of 15 packets overall.    
+ping -c 15 www.example.com
+
+# ping a host with a total count of 15 packets overall, one every .5 seconds (faster ping). 
+ping -c 15 -i .5 www.example.com
+
+# test if a packet size of 1500 bytes is supported (to check the MTU for example)
+ping -s 1500 -c 10 -M do www.example.com&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;fping&lt;/p&gt;
+&lt;p&gt;A more powerful ping which can ping multiple hosts.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;# List alive hosts within a subnet generated from a netmask:
+fping -a -g 192.168.1.0/24
+
+# List alive hosts within a subnet generated from an IP range:
+fping -a -g 192.168.1.1 192.168.1.254
+
+# List unreachable hosts within a subnet generated from a netmask:
+fping -u -g 192.168.1.0/24&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;telnet&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;# Connect to a specified port of a host using the telnet protocol.
+
+# Telnet to the default port of a host:
+  telnet host
+
+# Telnet to a specific port of a host:
+  telnet ip_address port
+
+# Exit a telnet session:
+  quit
+
+# Emit the default escape character combination for terminating the session:
+  Ctrl + ]
+
+# Start telnet with &amp;quot;x&amp;quot; as the session termination character:
+  telnet -e x ip_address port&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;exit telnet&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;Escape character is &amp;#39;^]&amp;#39;.&lt;/code&gt;
+Since ^X is CtrlX, try Ctrl] for ^].&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</content:encoded></item><item><title><![CDATA[【翻译】每个人都应当知道的es2018当中的新特性]]></title><description><![CDATA[ECMAScript 标准的第九版，官方称为 ECMAScript 2018（或简称 ES2018），于 2018 年 6 月发布。从 ES2016 开始，ECMAScript…]]></description><link>https://jerexyz.github.io//ecmascript/new-es2018-features-every-javascript-developer-should-know/</link><guid isPermaLink="false">https://jerexyz.github.io//ecmascript/new-es2018-features-every-javascript-developer-should-know/</guid><pubDate>Mon, 14 Jan 2019 07:23:05 GMT</pubDate><content:encoded>&lt;p&gt;ECMAScript 标准的第九版，官方称为 ECMAScript 2018（或简称 ES2018），于 2018 年 6 月发布。从 ES2016 开始，ECMAScript 规范的新版本每年发布而不是每几年发布一次，并且添加的功能少于以前的主要版本。
 该标准的最新的每年一次的版本添加了四个新的 RegExp 功能，展开语法(Spread syntax)，异步迭代（asynchronous iteration）和 &lt;code class=&quot;language-text&quot;&gt;Promise.prototype.finally&lt;/code&gt;。此外，ES2018 从标记模板中删除了转义序列的语法限制。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
