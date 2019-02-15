@@ -80,5 +80,12 @@ date: 2019-01-11T03:05:51.039Z
     git difftool origin/master --dir-diff
     ```
 
+. 清理.DS_Store
+
+    Remove existing files from the repository:  
+    ```sh
+    find . -name .DS_Store -print0 | xargs -0 git rm -f --ignore-unmatch
+    ```
+
 > [A simple way to clean up your git project branches](https://medium.com/@FlorentDestrema/a-simple-way-to-clean-up-your-git-project-branches-283b87478fbc)  
 >[progit](https://gitee.com/progit/)
