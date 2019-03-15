@@ -16,8 +16,14 @@ class BlogPostTemplate extends React.Component {
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <Helmet
-          htmlAttributes={{ lang: 'en' }}
-          meta={[{ name: 'description', content: siteDescription }]}
+          htmlAttributes={{ lang: 'zh-CN' }}
+          meta={[
+            { name: 'description', content: siteDescription },
+            {
+              name: 'google-site-verification',
+              content: 'N9gjCsodNliP-WHel7EH7HU2ZZbDZNz5Z160VY-tXeQ',
+            },
+          ]}
           title={`${post.frontmatter.title} | ${siteTitle}`}
         />
         <h1>{post.frontmatter.title}</h1>
