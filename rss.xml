@@ -1,25 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Jere`s Blog]]></title><description><![CDATA[个人博客，用于知识整理.]]></description><link>https://jerexyz.github.io/</link><generator>RSS for Node</generator><lastBuildDate>Wed, 29 May 2019 09:01:31 GMT</lastBuildDate><item><title><![CDATA[微信H5移动端真机调试]]></title><description><![CDATA[mkcertAdvanced options:安装配置证书如何信任证书配置 webpackDevServer 的证书
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Jere`s Blog]]></title><description><![CDATA[个人博客，用于知识整理.]]></description><link>https://jerexyz.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 25 Nov 2019 06:48:34 GMT</lastBuildDate><item><title><![CDATA[微信H5移动端真机调试]]></title><description><![CDATA[mkcert Advanced options: 安装 配置证书 如何信任证书 配置 webpackDevServer 的证书
 将 覆盖至 
-修改 添加安装 至需要代理的手机修改手机 wifi 代理至配置 host 注意：
-被代理手机需要安装并信任两个证书，一个是 anyproxy…]]></description><link>https://jerexyz.github.io//tools/cert-for-debug/</link><guid isPermaLink="false">https://jerexyz.github.io//tools/cert-for-debug/</guid><pubDate>Wed, 17 Apr 2019 03:20:00 GMT</pubDate><content:encoded>&lt;ol&gt;
+修改 添加 安装 至需要代理的手机 修改手机 wifi 代理至 配置 host…]]></description><link>https://jerexyz.github.io/tools/cert-for-debug/</link><guid isPermaLink="false">https://jerexyz.github.io/tools/cert-for-debug/</guid><pubDate>Wed, 17 Apr 2019 03:20:00 GMT</pubDate><content:encoded>&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;mkcert&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;Usage of mkcert:
 
 $ mkcert -install
-Install the local CA &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; the system trust store.
+Install the &lt;span class=&quot;token builtin class-name&quot;&gt;local&lt;/span&gt; CA &lt;span class=&quot;token keyword&quot;&gt;in&lt;/span&gt; the system trust store.
 
 $ mkcert example.org
-Generate &lt;span class=&quot;token string&quot;&gt;&quot;example.org.pem&quot;&lt;/span&gt; and &lt;span class=&quot;token string&quot;&gt;&quot;example.org-key.pem&quot;&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;.&lt;/span&gt;
+Generate &lt;span class=&quot;token string&quot;&gt;&quot;example.org.pem&quot;&lt;/span&gt; and &lt;span class=&quot;token string&quot;&gt;&quot;example.org-key.pem&quot;&lt;/span&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;.&lt;/span&gt;
 
-$ mkcert example.com myapp.dev localhost 127.0.0.1 ::1
-Generate &lt;span class=&quot;token string&quot;&gt;&quot;example.com+4.pem&quot;&lt;/span&gt; and &lt;span class=&quot;token string&quot;&gt;&quot;example.com+4-key.pem&quot;&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;.&lt;/span&gt;
+$ mkcert example.com myapp.dev localhost &lt;span class=&quot;token number&quot;&gt;127.0&lt;/span&gt;.0.1 ::1
+Generate &lt;span class=&quot;token string&quot;&gt;&quot;example.com+4.pem&quot;&lt;/span&gt; and &lt;span class=&quot;token string&quot;&gt;&quot;example.com+4-key.pem&quot;&lt;/span&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;.&lt;/span&gt;
 
 $ mkcert &lt;span class=&quot;token string&quot;&gt;&quot;*.example.it&quot;&lt;/span&gt;
-Generate &lt;span class=&quot;token string&quot;&gt;&quot;_wildcard.example.it.pem&quot;&lt;/span&gt; and &lt;span class=&quot;token string&quot;&gt;&quot;_wildcard.example.it-key.pem&quot;&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;.&lt;/span&gt;
+Generate &lt;span class=&quot;token string&quot;&gt;&quot;_wildcard.example.it.pem&quot;&lt;/span&gt; and &lt;span class=&quot;token string&quot;&gt;&quot;_wildcard.example.it-key.pem&quot;&lt;/span&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;.&lt;/span&gt;
 
 $ mkcert -uninstall
-Uninstall the local CA &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;but &lt;span class=&quot;token keyword&quot;&gt;do&lt;/span&gt; not delete it&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+Uninstall the &lt;span class=&quot;token builtin class-name&quot;&gt;local&lt;/span&gt; CA &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;but &lt;span class=&quot;token keyword&quot;&gt;do&lt;/span&gt; not delete it&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Advanced options:&lt;/p&gt;
@@ -88,18 +87,10 @@ node config/ssl/proxy.js #启动代理&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
   proxy&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;ol start=&quot;4&quot;&gt;
-&lt;li&gt;
-&lt;p&gt;安装&lt;code class=&quot;language-text&quot;&gt;config/ssl/CA.crt&lt;/code&gt; 至需要代理的手机&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;修改手机 wifi 代理至&lt;code class=&quot;language-text&quot;&gt;本机IP:8001&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;配置 host &lt;code class=&quot;language-text&quot;&gt;127.0.0.1 test.niubi.com&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;anyproxy&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;安装&lt;code class=&quot;language-text&quot;&gt;config/ssl/CA.crt&lt;/code&gt; 至需要代理的手机&lt;/li&gt;
+&lt;li&gt;修改手机 wifi 代理至&lt;code class=&quot;language-text&quot;&gt;本机IP:8001&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;配置 host &lt;code class=&quot;language-text&quot;&gt;127.0.0.1 test.niubi.com&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;anyproxy&lt;/code&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;/* eslint-disable */&lt;/span&gt;
 &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; AnyProxy &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;anyproxy&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
@@ -130,7 +121,7 @@ proxyServer&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;spa
 &lt;blockquote&gt;
 &lt;p&gt;&lt;a href=&quot;http://blog.acwong.org/2016/03/05/change-webpack-certificate/&quot;&gt;change-webpack-certificate&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/FiloSottile/mkcert&quot;&gt;mkcert&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[「微信小程序」开发问题汇总]]></title><description><![CDATA[如何便捷的带上分享参数  通过重写微信小程序的函数,改变的调用行为,每次调用分享的时候动态拼接上当前用户的分享  小程序中不能显示左尖括号？用text标签，设置属性为true,例如一下代码]]></description><link>https://jerexyz.github.io//weapp-tips/</link><guid isPermaLink="false">https://jerexyz.github.io//weapp-tips/</guid><pubDate>Tue, 26 Feb 2019 06:22:49 GMT</pubDate><content:encoded>&lt;ol&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/FiloSottile/mkcert&quot;&gt;mkcert&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[「微信小程序」开发问题汇总]]></title><description><![CDATA[如何便捷的带上分享参数   通过重写微信小程序的函数,改变的调用行为,每次调用分享的时候动态拼接上当前用户的分享   小程序中不能显示左尖括号？ 用text标签，设置属性为true,例如一下代码]]></description><link>https://jerexyz.github.io/weapp-tips/</link><guid isPermaLink="false">https://jerexyz.github.io/weapp-tips/</guid><pubDate>Tue, 26 Feb 2019 06:22:49 GMT</pubDate><content:encoded>&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;如何便捷的带上分享参数  &lt;/p&gt;
 &lt;p&gt;通过重写微信小程序的&lt;code class=&quot;language-text&quot;&gt;Page&lt;/code&gt;函数,改变&lt;code class=&quot;language-text&quot;&gt;onShareAppMessage&lt;/code&gt;的调用行为,每次调用分享的时候动态拼接上当前用户的分享&lt;code class=&quot;language-text&quot;&gt;ID&lt;/code&gt;  &lt;/p&gt;
@@ -140,8 +131,8 @@ proxyServer&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;spa
 &lt;p&gt;用text标签，设置&lt;code class=&quot;language-text&quot;&gt;decode&lt;/code&gt;属性为true,例如一下代码&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;text&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;decode&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;佣金到&lt;span class=&quot;token entity&quot; title=&quot;&amp;lt;&quot;&gt;&amp;amp;lt;&lt;/span&gt;会员-收益&lt;span class=&quot;token entity&quot; title=&quot;&amp;gt;&quot;&gt;&amp;amp;gt;&lt;/span&gt;中查看&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;text&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/li&gt;
-&lt;/ol&gt;</content:encoded></item><item><title><![CDATA[常用的网络连通检测命令]]></title><description><![CDATA[pingfpingA more powerful ping which can ping multiple hosts.telnetexit telnet
-Since ^X is CtrlX, try Ctrl] for ^].]]></description><link>https://jerexyz.github.io//tools/net-detect/</link><guid isPermaLink="false">https://jerexyz.github.io//tools/net-detect/</guid><pubDate>Thu, 14 Feb 2019 03:21:04 GMT</pubDate><content:encoded>&lt;ol&gt;
+&lt;/ol&gt;</content:encoded></item><item><title><![CDATA[常用的网络连通检测命令]]></title><description><![CDATA[ping fping A more powerful ping which can ping multiple hosts. telnet exit telnet 
+Since ^X is CtrlX, try Ctrl] for ^].]]></description><link>https://jerexyz.github.io/tools/net-detect/</link><guid isPermaLink="false">https://jerexyz.github.io/tools/net-detect/</guid><pubDate>Thu, 14 Feb 2019 03:21:04 GMT</pubDate><content:encoded>&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;ping&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;# ping a host with a total count of 15 packets overall.    
@@ -189,7 +180,7 @@ fping -u -g 192.168.1.0/24&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;Escape character is &amp;#39;^]&amp;#39;.&lt;/code&gt;
 Since ^X is CtrlX, try Ctrl] for ^].&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ol&gt;</content:encoded></item><item><title><![CDATA[【翻译】每个人都应当知道的es2018当中的新特性]]></title><description><![CDATA[ECMAScript 标准的第九版，官方称为 ECMAScript 2018（或简称 ES2018），于 2018 年 6 月发布。从 ES2016 开始，ECMAScript…]]></description><link>https://jerexyz.github.io//ecmascript/new-es2018-features-every-javascript-developer-should-know/</link><guid isPermaLink="false">https://jerexyz.github.io//ecmascript/new-es2018-features-every-javascript-developer-should-know/</guid><pubDate>Mon, 14 Jan 2019 07:23:05 GMT</pubDate><content:encoded>&lt;p&gt;ECMAScript 标准的第九版，官方称为 ECMAScript 2018（或简称 ES2018），于 2018 年 6 月发布。从 ES2016 开始，ECMAScript 规范的新版本每年发布而不是每几年发布一次，并且添加的功能少于以前的主要版本。
+&lt;/ol&gt;</content:encoded></item><item><title><![CDATA[【翻译】每个人都应当知道的es2018当中的新特性]]></title><description><![CDATA[ECMAScript 标准的第九版，官方称为 ECMAScript 2018（或简称 ES2018），于 2018 年 6 月发布。从 ES2016 开始，ECMAScript…]]></description><link>https://jerexyz.github.io/ecmascript/new-es2018-features-every-javascript-developer-should-know/</link><guid isPermaLink="false">https://jerexyz.github.io/ecmascript/new-es2018-features-every-javascript-developer-should-know/</guid><pubDate>Mon, 14 Jan 2019 07:23:05 GMT</pubDate><content:encoded>&lt;p&gt;ECMAScript 标准的第九版，官方称为 ECMAScript 2018（或简称 ES2018），于 2018 年 6 月发布。从 ES2016 开始，ECMAScript 规范的新版本每年发布而不是每几年发布一次，并且添加的功能少于以前的主要版本。
 该标准的最新的每年一次的版本添加了四个新的 RegExp 功能，展开语法(Spread syntax)，异步迭代（asynchronous iteration）和 &lt;code class=&quot;language-text&quot;&gt;Promise.prototype.finally&lt;/code&gt;。此外，ES2018 从标记模板中删除了转义序列的语法限制。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -322,7 +313,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 &lt;p&gt;&lt;a href=&quot;https://css-tricks.com/new-es2018-features-every-javascript-developer-should-know/&quot;&gt;new-es2018-features-every-javascript-developer-should-know&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;/li&gt;
-&lt;/ol&gt;</content:encoded></item><item><title><![CDATA[git使用笔记]]></title><description><![CDATA[配置常用操作别名添加以下配置设置默认的 Push Remote在使用的时候，经常会碰到这种情况配置推送到远端的默认分支就可解决清理本地 git 分支清理已合并的分支清理所有本地分支,慎重使用Git 如果不做设置，默认的 diff 是按行去做的，这种 diff…]]></description><link>https://jerexyz.github.io//tools/git-tips/</link><guid isPermaLink="false">https://jerexyz.github.io//tools/git-tips/</guid><pubDate>Fri, 11 Jan 2019 03:05:51 GMT</pubDate><content:encoded>&lt;ol&gt;
+&lt;/ol&gt;</content:encoded></item><item><title><![CDATA[git使用笔记]]></title><description><![CDATA[配置常用操作别名 添加以下配置 设置默认的 Push Remote 在使用的时候，经常会碰到这种情况 配置推送到远端的默认分支就可解决 清理本地 git 分支 清理已合并的分支 清理所有本地分支,慎重使用  Git 如果不做设置，默认的 diff 是按行去做的，这种 diff…]]></description><link>https://jerexyz.github.io/tools/git-tips/</link><guid isPermaLink="false">https://jerexyz.github.io/tools/git-tips/</guid><pubDate>Fri, 11 Jan 2019 03:05:51 GMT</pubDate><content:encoded>&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;配置&lt;code class=&quot;language-text&quot;&gt;git&lt;/code&gt;常用操作别名&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; config --global --edit&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -332,8 +323,8 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
   ci &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; commit
   st &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; status
   br &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; branch
-  hist &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; log --pretty&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;format:\&quot;%h %ad &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; %s%d &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;%an&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;\&quot; --graph --date&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;short
-  &lt;span class=&quot;token function&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; cat-file -t
+  hist &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; log --pretty&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;format:&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;&quot;%h %ad &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; %s%d &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;%an&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;\&lt;/span&gt;&quot; --graph --date&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;short
+  &lt;span class=&quot;token builtin class-name&quot;&gt;type&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; cat-file -t
   dump &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; cat-file -p
   rb &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; rebase -i --autosquash
   &lt;span class=&quot;token function&quot;&gt;pr&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; remote prune origin&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -342,7 +333,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;git&lt;/code&gt;设置默认的 Push Remote&lt;/p&gt;
 &lt;p&gt;在使用&lt;code class=&quot;language-text&quot;&gt;git push&lt;/code&gt;的时候，经常会碰到这种情况&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;fatal: The current branch newFeature has no upstream branch.
-To push the current branch and &lt;span class=&quot;token keyword&quot;&gt;set&lt;/span&gt; the remote as upstream, use
+To push the current branch and &lt;span class=&quot;token builtin class-name&quot;&gt;set&lt;/span&gt; the remote as upstream, use
 
     &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; push --set-upstream origin newFeature&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;配置推送到远端的默认分支就可解决&lt;/p&gt;
@@ -381,15 +372,13 @@ To push the current branch and &lt;span class=&quot;token keyword&quot;&gt;set&l
 &lt;p&gt;Remove existing files from the repository:  &lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;find . -name .DS_Store -print0 | xargs -0 git rm -f --ignore-unmatch&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;git checkout —theirs&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;git checkout —theirs&lt;/li&gt;
 &lt;/ol&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; ls-files --unmerged &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; perl -n -e&lt;span class=&quot;token string&quot;&gt;&apos;/\t(.*)/ &amp;amp;&amp;amp; print &quot;&lt;span class=&quot;token variable&quot;&gt;$1&lt;/span&gt;\n&quot;&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;uniq&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;xargs&lt;/span&gt; -r &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; checkout --theirs --&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;bash&quot;&gt;&lt;pre class=&quot;language-bash&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; ls-files --unmerged &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; perl -n -e&lt;span class=&quot;token string&quot;&gt;&apos;/&lt;span class=&quot;token entity&quot; title=&quot;\t&quot;&gt;\t&lt;/span&gt;(.*)/ &amp;amp;&amp;amp; print &quot;&lt;span class=&quot;token variable&quot;&gt;$1&lt;/span&gt;&lt;span class=&quot;token entity&quot; title=&quot;\n&quot;&gt;\n&lt;/span&gt;&quot;&apos;&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;uniq&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;xargs&lt;/span&gt; -r &lt;span class=&quot;token function&quot;&gt;git&lt;/span&gt; checkout --theirs --&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;a href=&quot;https://medium.com/@FlorentDestrema/a-simple-way-to-clean-up-your-git-project-branches-283b87478fbc&quot;&gt;A simple way to clean up your git project branches&lt;/a&gt;&lt;br&gt;
 &lt;a href=&quot;https://gitee.com/progit/&quot;&gt;progit&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[Fish Shell 使用笔记]]></title><description><![CDATA[安装Fish Shell  安装Oh My Fish  安装Fisher配置 autojump安装 autojump 至本地  目录:在fish配置中打开文件~/.config/fish/config。在编辑器中查找并添加以下行:退出fish，重新开始。使用cd…]]></description><link>https://jerexyz.github.io//tools/notes-for-the-fish-shell/</link><guid isPermaLink="false">https://jerexyz.github.io//tools/notes-for-the-fish-shell/</guid><pubDate>Thu, 10 Jan 2019 03:51:23 GMT</pubDate><content:encoded>&lt;ol&gt;
+&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[Fish Shell 使用笔记]]></title><description><![CDATA[安装Fish Shell   安装Oh My Fish   安装Fisher 配置 autojump 安装 autojump 至本地  目录: 在fish配置中打开文件~/.config/fish/config。在编辑器中查找并添加以下行: 退出fish，重新开始。使用cd…]]></description><link>https://jerexyz.github.io/tools/notes-for-the-fish-shell/</link><guid isPermaLink="false">https://jerexyz.github.io/tools/notes-for-the-fish-shell/</guid><pubDate>Thu, 10 Jan 2019 03:51:23 GMT</pubDate><content:encoded>&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;安装Fish Shell  &lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;brew install fish&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -457,16 +446,14 @@ end&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;sh&quot;&gt;&lt;pre class=&quot;language-sh&quot;&gt;&lt;code class=&quot;language-sh&quot;&gt;echo /usr/local/bin/fish | sudo tee -a /etc/shells
 chsh -s /usr/local/bin/fish&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;shell&lt;/code&gt;工具函数收集&lt;/p&gt;
-&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;shell&lt;/code&gt;工具函数收集&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;a href=&quot;https://stedolan.github.io/jq/tutorial/&quot;&gt;https://stedolan.github.io/jq/tutorial/&lt;/a&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;a href=&quot;https://fishshell.com/docs/current/tutorial.html#tut_switching_to_fish&quot;&gt;switch to fish&lt;/a&gt;&lt;br&gt;
 &lt;a href=&quot;http://www.ruanyifeng.com/blog/2017/05/fish_shell.html&quot;&gt;Fish shell 入门教程&lt;/a&gt;&lt;br&gt;
 使用版本:Autojump 22.5.1, Fish 3.0.0和Mac 10.14.2  &lt;/p&gt;
-&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[nginx部署前端SPA应用实践]]></title><description><![CDATA[随着 react，vue 的普及，前后端分离之后，多采用 nginx 为静态服务器，并用 nginx 对 api 做反向代理，以实现前端 SPA 应用的部署。nginx location…]]></description><link>https://jerexyz.github.io//nginx-spa-app-config/</link><guid isPermaLink="false">https://jerexyz.github.io//nginx-spa-app-config/</guid><pubDate>Thu, 08 Feb 2018 22:12:03 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[nginx部署前端SPA应用实践]]></title><description><![CDATA[随着 react，vue 的普及，前后端分离之后，多采用 nginx 为静态服务器，并用 nginx 对 api 做反向代理，以实现前端 SPA 应用的部署。 nginx location…]]></description><link>https://jerexyz.github.io/nginx-spa-app-config/</link><guid isPermaLink="false">https://jerexyz.github.io/nginx-spa-app-config/</guid><pubDate>Thu, 08 Feb 2018 22:12:03 GMT</pubDate><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;随着 react，vue 的普及，前后端分离之后，多采用 nginx 为静态服务器，并用 nginx 对 api 做反向代理，以实现前端 SPA 应用的部署。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h3&gt;nginx location 匹配规则&lt;/h3&gt;
@@ -509,7 +496,7 @@ devServer&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span
     inline&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
     historyApiFallback&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
         rewrites&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;
-            &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;RegExp&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token string&quot;&gt;`^&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;basename&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; to&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;basename&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;/index.html`&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+            &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;RegExp&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;^&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;basename&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; to&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token interpolation&quot;&gt;&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;${&lt;/span&gt;basename&lt;span class=&quot;token interpolation-punctuation punctuation&quot;&gt;}&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;/index.html&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
             &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token regex&quot;&gt;/./&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; to&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; basename &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
         &lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
     &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
@@ -540,7 +527,7 @@ gzip_types    text/plain application/javascript application/x-javascript text/ja
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;gzip_static on;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;blockquote&gt;
 &lt;p&gt;The ngx&lt;em&gt;http&lt;/em&gt;gzip&lt;em&gt;static&lt;/em&gt;module module allows sending precompressed files with the “.gz” filename extension instead of regular files.&lt;/p&gt;
-&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[迁移至webpack2]]></title><description><![CDATA[Webpack2很快就要发布了，目前已经到了 2.1.0-beta.25 了，我也是从 2.1.0-beta21 开始关注 webpack2，类似 tree-shaking 等等新特性还是比较令人激动的，现在整理一下从 webpack1 升级到 webpack…]]></description><link>https://jerexyz.github.io//moving-to-webpack2/</link><guid isPermaLink="false">https://jerexyz.github.io//moving-to-webpack2/</guid><pubDate>Fri, 04 Nov 2016 18:05:06 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a href=&quot;https://webpack.js.org&quot;&gt;Webpack2&lt;/a&gt;很快就要发布了，目前已经到了 2.1.0-beta.25 了，我也是从 2.1.0-beta21 开始关注 webpack2，类似 tree-shaking 等等新特性还是比较令人激动的，现在整理一下从 webpack1 升级到 webpack2 的过程。&lt;/p&gt;
+&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[迁移至webpack2]]></title><description><![CDATA[Webpack2很快就要发布了，目前已经到了 2.1.0-beta.25 了，我也是从 2.1.0-beta21 开始关注 webpack2，类似 tree-shaking 等等新特性还是比较令人激动的，现在整理一下从 webpack1 升级到 webpack…]]></description><link>https://jerexyz.github.io/moving-to-webpack2/</link><guid isPermaLink="false">https://jerexyz.github.io/moving-to-webpack2/</guid><pubDate>Fri, 04 Nov 2016 18:05:06 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a href=&quot;https://webpack.js.org&quot;&gt;Webpack2&lt;/a&gt;很快就要发布了，目前已经到了 2.1.0-beta.25 了，我也是从 2.1.0-beta21 开始关注 webpack2，类似 tree-shaking 等等新特性还是比较令人激动的，现在整理一下从 webpack1 升级到 webpack2 的过程。&lt;/p&gt;
 &lt;p&gt;你也可以查阅&lt;a href=&quot;https://webpack.js.org/how-to/upgrade-from-webpack-1/&quot;&gt;官方的从 webpack1 至 webpack2 的文档&lt;/a&gt;&lt;/p&gt;
 &lt;h2&gt;安装 webpack2&lt;/h2&gt;
 &lt;p&gt;首先要做的就是安装最新版的 webpack，因为目前还不是稳定版，所以安装的时候最好指定确切的版本。目前最新的是 2.1.—beta.25:&lt;/p&gt;
@@ -637,9 +624,9 @@ ExtractTextPlugin.extract({
 &amp;quot;presets&amp;quot;: [
   [&amp;quot;es2015&amp;quot;, { &amp;quot;modules&amp;quot;: false }]
 ]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;此文为本人根据&lt;a href=&quot;http://javascriptplayground.com/blog/2016/10/moving-to-webpack-2/&quot;&gt;http://javascriptplayground.com/blog/2016/10/moving-to-webpack-2/&lt;/a&gt;翻译而来&lt;/p&gt;</content:encoded></item><item><title><![CDATA[javascript array 求和，求平均值]]></title><description><![CDATA[JavaScript 算法练习:取二维数组中最大值的几种方法Array.prototype.reduce()深入浅出妙用 Javascript 中 apply、call、bind]]></description><link>https://jerexyz.github.io//algorithm/avascript-array-evaluation/</link><guid isPermaLink="false">https://jerexyz.github.io//algorithm/avascript-array-evaluation/</guid><pubDate>Wed, 25 May 2016 00:07:06 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a href=&quot;http://www.w3cplus.com/javascript/algorithm-return-largest-numbers-in-arrays.html&quot;&gt;JavaScript 算法练习:取二维数组中最大值的几种方法&lt;/a&gt;&lt;br&gt;
+&lt;p&gt;此文为本人根据&lt;a href=&quot;http://javascriptplayground.com/blog/2016/10/moving-to-webpack-2/&quot;&gt;http://javascriptplayground.com/blog/2016/10/moving-to-webpack-2/&lt;/a&gt;翻译而来&lt;/p&gt;</content:encoded></item><item><title><![CDATA[javascript array 求和，求平均值]]></title><description><![CDATA[JavaScript 算法练习:取二维数组中最大值的几种方法 Array.prototype.reduce() 深入浅出妙用 Javascript 中 apply、call、bind]]></description><link>https://jerexyz.github.io/algorithm/avascript-array-evaluation/</link><guid isPermaLink="false">https://jerexyz.github.io/algorithm/avascript-array-evaluation/</guid><pubDate>Wed, 25 May 2016 00:07:06 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a href=&quot;http://www.w3cplus.com/javascript/algorithm-return-largest-numbers-in-arrays.html&quot;&gt;JavaScript 算法练习:取二维数组中最大值的几种方法&lt;/a&gt;&lt;br&gt;
 &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce&quot;&gt;Array.prototype.reduce()&lt;/a&gt;&lt;br&gt;
-&lt;a href=&quot;http://web.jobbole.com/83642/&quot;&gt;深入浅出妙用 Javascript 中 apply、call、bind&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[javascript 面向对象编程（封装）]]></title><description><![CDATA[面向对象编程就是将你的需求抽象成一个对象，然后针对这个对象分析其特性（属性）与动作（方法）。这个对象我们称之为类。面向对象编程思想其中有一个特点就是封装，就是说把你需要的功能放到一个对象里。1. javascript 当中的 prototype在 js…]]></description><link>https://jerexyz.github.io//object-oriented-javascript/</link><guid isPermaLink="false">https://jerexyz.github.io//object-oriented-javascript/</guid><pubDate>Sun, 22 May 2016 10:46:23 GMT</pubDate><content:encoded>&lt;p&gt;面向对象编程就是将你的需求抽象成一个对象，然后针对这个对象分析其特性（属性）与动作（方法）。这个对象我们称之为类。面向对象编程思想其中有一个特点就是封装，就是说把你需要的功能放到一个对象里。&lt;/p&gt;
+&lt;a href=&quot;http://web.jobbole.com/83642/&quot;&gt;深入浅出妙用 Javascript 中 apply、call、bind&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[javascript 面向对象编程（封装）]]></title><description><![CDATA[面向对象编程就是将你的需求抽象成一个对象，然后针对这个对象分析其特性（属性）与动作（方法）。这个对象我们称之为类。面向对象编程思想其中有一个特点就是封装，就是说把你需要的功能放到一个对象里。 1. javascript 当中的 prototype 在 js…]]></description><link>https://jerexyz.github.io/object-oriented-javascript/</link><guid isPermaLink="false">https://jerexyz.github.io/object-oriented-javascript/</guid><pubDate>Sun, 22 May 2016 10:46:23 GMT</pubDate><content:encoded>&lt;p&gt;面向对象编程就是将你的需求抽象成一个对象，然后针对这个对象分析其特性（属性）与动作（方法）。这个对象我们称之为类。面向对象编程思想其中有一个特点就是封装，就是说把你需要的功能放到一个对象里。&lt;/p&gt;
 &lt;h3&gt;1. javascript 当中的 prototype&lt;/h3&gt;
 &lt;p&gt;在 js 当中，constructor 属性是专门为 function 而设计的，她存在于&lt;strong&gt;每一个 function&lt;/strong&gt;的&lt;strong&gt;prototype 属性中&lt;/strong&gt;。constructor 保存了指向 function 的一个引用。同时，实例化（new 操作符）的 book 的&lt;strong&gt;proto&lt;/strong&gt; 属性是函数 prototype 的一个内部引用&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;var Book = function(id,bookname,price) {
