@@ -7,23 +7,7 @@
     "url": "https://github.com/jerexyz/jerexyz.github.io/issues"
   },
   "dependencies": {
-    "gatsby": "^2.18.2",
-    "gatsby-plugin-feed": "^2.3.21",
-    "gatsby-plugin-google-analytics": "^2.1.28",
-    "gatsby-plugin-manifest": "^2.2.29",
-    "gatsby-plugin-offline": "^3.0.22",
-    "gatsby-plugin-react-helmet": "^3.1.15",
-    "gatsby-plugin-sharp": "^2.3.2",
-    "gatsby-plugin-typography": "^2.3.17",
-    "gatsby-remark-copy-linked-files": "^2.1.30",
-    "gatsby-remark-images": "^3.1.33",
-    "gatsby-remark-prismjs": "^3.3.24",
-    "gatsby-remark-responsive-iframe": "^2.2.27",
-    "gatsby-remark-smartypants": "^2.1.16",
-    "gatsby-source-filesystem": "^2.1.38",
-    "gatsby-transformer-remark": "^2.6.37",
-    "gatsby-transformer-sharp": "^2.3.5",
-    "prismjs": "^1.17.1",
+    "moment": "^2.24.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
@@ -31,13 +15,15 @@
     "typeface-merriweather": "0.0.72",
     "typeface-montserrat": "0.0.75",
     "typography": "^0.16.19",
-    "typography-theme-wordpress-2016": "^0.16.19"
+    "typography-theme-wordpress-2016": "^0.16.19",
+    "yaml-front-matter": "^4.0.0"
   },
   "devDependencies": {
     "eslint": "^6.7.1",
     "eslint-plugin-react": "^7.16.0",
     "gh-pages": "^2.1.1",
-    "prettier": "^1.19.1"
+    "prettier": "^1.19.1",
+    "vuepress": "^1.2.0"
   },
   "resolutions": {
     "sharp": "^0.22.1"
@@ -53,14 +39,9 @@
     "url": "git+git@github.com:jerexyz/jerexyz.github.io.git"
   },
   "scripts": {
-    "dev": "gatsby develop",
-    "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public .",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'src/**/*.md'",
-    "develop": "gatsby develop",
-    "start": "npm run develop",
-    "build": "gatsby build",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public -b master",
-    "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix gatsby-node.js"
+    "deploy": "vuepress build docs && gh-pages -d public -b master"
   }
 }

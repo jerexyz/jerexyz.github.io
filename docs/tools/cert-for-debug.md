@@ -1,6 +1,7 @@
 ---
 title: 微信H5移动端真机调试
 date: 2019-04-17T03:20:00.790Z
+type: "post"
 ---
 
 1. mkcert
