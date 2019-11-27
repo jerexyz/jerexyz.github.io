@@ -22,6 +22,7 @@
     "eslint": "^6.7.1",
     "eslint-plugin-react": "^7.16.0",
     "gh-pages": "^2.1.1",
+    "markdown-it-plantuml": "^1.4.1",
     "prettier": "^1.19.1",
     "vuepress": "^1.2.0"
   },
@@ -39,9 +40,10 @@
     "url": "git+git@github.com:jerexyz/jerexyz.github.io.git"
   },
   "scripts": {
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs",
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'src/**/*.md'",
-    "deploy": "vuepress build docs && gh-pages -d pages -b master"
+    "deploy": "vuepress build docs && gh-pages -d pages -b master",
+    "deploy:gitee": "vuepress build docs && gh-pages -d pages -b master -r git@gitee.com:jere/blog.git"
   }
 }
